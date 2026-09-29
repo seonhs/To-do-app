@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>나의 할 일 목록</title>
-  <link rel="stylesheet" href="style.css" />
+  <!-- 파비콘 설정 -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+  <!-- 스타일시트 연동 -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <h1>나의 할 일 목록</h1>
-
-    <div class="input-area">
-      <input type="text" id="todo-input" placeholder="할 일을 입력하세요" />
-      <button id="add-btn">추가</button>
+  <!-- 메인 카운터/투두 카드 (최대 너비 500px, 중앙 정렬) -->
+  <main class="todo-card">
+    <!-- 헤더: 제목 및 할 일 개수 통계 -->
+    <div class="todo-header">
+      <h1 class="todo-title">📝 나의 할 일 목록</h1>
+      <div id="todoStats" class="todo-stats">전체 0개 · 완료 0개</div>
     </div>
 
-    <div class="filter-area" id="filter-area">
-      <button class="filter-btn active" data-filter="all">전체</button>
-      <button class="filter-btn" data-filter="active">진행중</button>
-      <button class="filter-btn" data-filter="completed">완료</button>
+    <!-- 입력창 및 추가 버튼 -->
+    <div class="todo-input-group">
+      <input type="text" id="todoInput" class="todo-input" placeholder="할 일을 입력하세요" autocomplete="off">
+      <button id="addBtn" class="todo-add-btn">추가</button>
     </div>
 
-    <ul class="todo-list" id="todo-list">
-      <!-- 할 일 항목은 비어 있습니다 -->
-    </ul>
-
-    <div class="todo-footer">
-      <div class="todo-summary" id="todo-summary">전체 0개 · 완료 0개</div>
-      <button id="clear-completed-btn">완료된 항목 삭제</button>
+    <!-- 할 일 목록 영역 -->
+    <div class="todo-list-container">
+      <ul id="todoList" class="todo-list">
+        <!-- Javascript를 통해 할 일 항목들이 추가될 공간입니다 -->
+      </ul>
+      <p id="emptyMsg" class="empty-message">등록된 할 일이 없습니다.</p>
     </div>
-  </div>
+  </main>
 
+  <!-- 스크립트 연동 -->
   <script src="main.js"></script>
 </body>
 </html>
